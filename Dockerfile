@@ -1,4 +1,4 @@
-FROM openjdk:8u171-alpine3.7
+FROM adoptopenjdk/openjdk11:x86_64-ubuntu-jre-11.0.18_10
 
 EXPOSE 9090
 
