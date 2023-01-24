@@ -37,19 +37,19 @@ pipeline {
                 }
             }
         }
-        stage('Update GIT and Deloy in ArgoCD') {
-          steps {
-            script {
-              catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                    def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
-                    sh "git add argocd-app-config/"
-                    sh "git commit -m 'Triggered Build: ${env.BUILD_NUMBER}'"
-                    sh "git push https://${GIT_USERNAME}:${encodedPassword}@github.com/${GIT_USERNAME}/DevOpsUpskill-FinalProject-Infra.git HEAD:main"
-                }
-              }
-            }
-          }
-        }
+        // stage('Update GIT and Deloy in ArgoCD') {
+        //   steps {
+        //     script {
+        //       catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+        //         withCredentials([usernamePassword(credentialsId: 'github-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+        //             def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
+        //             sh "git add argocd-app-config/"
+        //             sh "git commit -m 'Triggered Build: ${env.BUILD_NUMBER}'"
+        //             sh "git push https://${GIT_USERNAME}:${encodedPassword}@github.com/${GIT_USERNAME}/DevOpsUpskill-FinalProject-Infra.git HEAD:main"
+        //         }
+        //       }
+        //     }
+        //   }
+        // }
     }
 }
