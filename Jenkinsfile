@@ -14,7 +14,7 @@ pipeline {
         maven 'Maven'
     }
     environment {
-        IMAGE_NAME = 'nbglink/demo-app:jma-11',
+        IMAGE_NAME = 'nbglink/demo-app:jma-11'
         APPLICATION_NAME = 'demo-app'
     }
     stages {
