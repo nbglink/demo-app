@@ -33,7 +33,6 @@ pipeline {
                    buildImage(env.IMAGE_NAME)
                    dockerLogin()
                    dockerPush(env.IMAGE_NAME)
-                   def d = 
                    sh "mkdir --parents ./argocd-app-config/${env.APPLICATION_NAME}/ && mv ./target/classes/META-INF/dekorate/kubernetes.yml  $_"
                 }
             }
