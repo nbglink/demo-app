@@ -14,7 +14,7 @@ pipeline {
         maven 'Maven'
     }
     environment {
-        IMAGE_NAME = 'nbglink/demo-app:java-maven-7.0'
+        IMAGE_NAME = 'nbglink/demo-app:java-maven-8.0'
     }
     stages {
         stage('build app') {
